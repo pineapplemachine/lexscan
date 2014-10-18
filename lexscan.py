@@ -29,8 +29,7 @@
 
 '''Lexical scanner module by Sophie Kirschner. (sophiek@pineapplemachine.com)
 Define lexemes by creating ScanExp objects, which are used to map an input
-string to a sequence of tokens. Tokenize an input string using the static
-ScanExp.tokenize() method.
+string to a sequence of tokens. Tokenize an input string by calling tokenize()
 '''
 
 
