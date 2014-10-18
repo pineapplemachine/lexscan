@@ -2,7 +2,7 @@
 
 ## Introduction
 
-lexscan is a simple module for tokenizing an input string based on a set of regular expressions.
+lexscan is a simple Python 2.7 module for tokenizing an input string based on a set of regular expressions.
 
 ## Example
 
