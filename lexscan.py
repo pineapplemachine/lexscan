@@ -200,10 +200,3 @@ class ScanToken(object):
         return (str(self.source)+":" if self.source else "") + str(self.linepos)+":" + str(self.strpos)+": '" + self.text + "' " + str(self.expression)
     
 
-teststr = "this!! is !! a test!!!!!! yay"
-# wordexp = ScanExp( r'\w*' )
-# bangexp = ScanExp( r'!*' )
-# spaceexp = ScanExp( r'\s*', significant = False )
-# print Scanner.tokenize( teststr, ( wordexp, bangexp, spaceexp ) )
-
-
