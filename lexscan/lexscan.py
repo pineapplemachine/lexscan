@@ -87,11 +87,11 @@ def tokenize( strinput, expressions, source = None, newline = '\n' ):
         if bestexp:
             matchstr = bestmatch.group()
             if bestexp.significant:
-                tokens.append( ScanToken( matchstr, bestexp, strpos, strline, source ) )
+                tokens.append( ScanToken( matchstr, bestexp, bestmatch, strpos, strline, source ) )
             strline += matchstr.count( newline )
             strpos += bestlen
         else:
-            tokens.append( ScanToken( strinput[ strpos ], None, strpos, strline, source ) )
+            tokens.append( ScanToken( strinput[ strpos ], None, None, strpos, strline, source ) )
             strline += ( strinput[ strpos ] == newline )
             strpos += 1
     return tokens
@@ -177,12 +177,14 @@ class ScanToken(object):
     '''ScanToken objects contain a string as well as some contextual information about the token.'''
     
     # Constructor
-    def __init__( self, text = '', expression = None, strpos = 0, linepos = 0, source = None ):
+    def __init__( self, text = '', expression = None, match = None, strpos = 0, linepos = 0, source = None ):
         '''Construct a ScanToken object. (You shouldn't need to use this.)
         Returns a ScanToken object.
         '''
         self.text = text
         '''The token text.'''
+        self.match = match
+        '''The regex match which resulted in this token being created.'''
         self.expression = expression
         '''The ScanExp object with which this token is associated.'''
         self.strpos = strpos
